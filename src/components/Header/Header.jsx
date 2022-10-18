@@ -5,7 +5,7 @@ import './Header.css'
 
 const Header = () => {
     const {user} =useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content">
