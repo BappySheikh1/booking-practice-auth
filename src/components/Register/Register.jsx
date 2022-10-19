@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context-API/UseContext';
 
 const Register = () => {
-const {createUser}=useContext(AuthContext)
+const {createUser,updateProfileName ,emailVarify}=useContext(AuthContext)
     const handleSubmit=(event)=>{
         event.preventDefault();
         const form=event.target
@@ -11,17 +11,39 @@ const {createUser}=useContext(AuthContext)
         const email=form.email.value
         const password=form.password.value
         console.log(email,password,name);
+
         createUser(email,password)
         .then(result =>{
          const user=result.user
          console.log(user);
          form.reset();
+         updateName(name);
+         emailVarification();
          
         })
         .catch(error =>{
             console.log(error);
         })
        
+    }
+    const updateName=(name)=>{
+        updateProfileName(name)
+       .then(()=>{
+        
+       })
+       .catch(error =>{
+        console.log(error);
+       })
+    }
+    const emailVarification=()=>{
+        emailVarify()
+        .then(()=>{
+            alert('Please check your gmail and varification your account')
+            return;
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
 
     return (

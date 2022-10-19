@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context-API/UseContext';
+import {FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-const {userLogIn}=useContext(AuthContext)
+const {userLogIn,googleLoginWithPopUp}=useContext(AuthContext)
 const navigate=useNavigate()
     const handleSubmit=(event)=>{
         event.preventDefault();
@@ -20,6 +21,18 @@ const navigate=useNavigate()
         })
         
     }
+     const handleGooglePopUpLogin=()=>{
+        googleLoginWithPopUp()
+        .then(result =>{
+            const user =result.user
+            console.log(user);
+            navigate('/')
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+     }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -53,6 +66,15 @@ const navigate=useNavigate()
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
+
+                        <button 
+
+                        onClick={handleGooglePopUpLogin} 
+                        className=' btn btn-outline btn-primary w-52 mx-auto flex justify-center'>
+                            <FaGoogle className='mt-1 mr-3' />
+                             Google Log In
+                             </button>
+                        
                     </div>
                 </div>
             </div>

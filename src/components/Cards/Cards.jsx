@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaBeer } from 'react-icons/fa';
 
 const Cards = () => {
     return (
@@ -9,6 +10,7 @@ const Cards = () => {
                 <div className="card-body">
                     <h2 className="card-title">New movie is released!</h2>
                     <p>Click the button to watch on Jetflix app.</p>
+                    
                     <div className="card-actions justify-end">
                         <Link to='/id-1'><button className="btn btn-primary">Buy Now</button></Link>
                     </div>
