@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context-API/UseContext';
 
 const Register = () => {
@@ -38,8 +39,8 @@ const {createUser,updateProfileName ,emailVarify}=useContext(AuthContext)
     const emailVarification=()=>{
         emailVarify()
         .then(()=>{
-            alert('Please check your gmail and varification your account')
-            return;
+            toast.success('Please Check your email and verify account',{autoClose: 500})
+            
         })
         .catch(error =>{
             console.log(error);

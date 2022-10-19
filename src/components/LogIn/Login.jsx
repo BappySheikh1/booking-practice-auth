@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context-API/UseContext';
 import {FaGoogle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-const {userLogIn,googleLoginWithPopUp}=useContext(AuthContext)
-const navigate=useNavigate()
+const {userLogIn,googleLoginWithPopUp,forgetPassword}=useContext(AuthContext)
+const navigate = useNavigate()
+const location= useLocation();
+let from = location.state?.from?.pathname || "/";
+
     const handleSubmit=(event)=>{
         event.preventDefault();
         const form=event.target
@@ -17,7 +21,7 @@ const navigate=useNavigate()
             const user =result.user
             console.log(user);
             form.reset()
-            navigate('/')
+            navigate(from, { replace: true })
         })
         
     }

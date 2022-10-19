@@ -20,15 +20,17 @@ const Header = () => {
                 <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI</Link>
                 <div className='header-container'>
                     <Link to='/home'>Home</Link>
+                    <Link to='/about'>About Us</Link>
 
-                { user && user.uid ? 
-               <button onClick={handleLogOut}>Log Out</button>
+                { user  ? 
+              <Link> <button onClick={handleLogOut}>Log Out</button> </Link>
                :
                 <>
                 <Link to='/login'>LogIn</Link>
                 <Link to='/register'>Register</Link>
                 </>
                 }
+               
                 
                 </div>
                 

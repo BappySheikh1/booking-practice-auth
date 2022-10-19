@@ -4,6 +4,8 @@ import Main from "../layout/Main";
 import Register from '../components/Register/Register.jsx';
 import Login from '../components/LogIn/Login.jsx'
 import CardDetails from "../components/CardDetail/CardDetails";
+import PrivateRoutes from "./PrivateRoutes";
+import About from "../components/About/About";
 
 export const router =createBrowserRouter([
     {
@@ -24,7 +26,7 @@ export const router =createBrowserRouter([
             },
             {
                 path:'/:id',
-                element: <CardDetails />
+                element:<PrivateRoutes> <CardDetails /></PrivateRoutes>
             },
             {
                 path:'/register',
@@ -34,6 +36,10 @@ export const router =createBrowserRouter([
                 path:'/login',
                 element: <Login />
             },
+            {
+                path:'/about',
+                element:<PrivateRoutes><About /></PrivateRoutes>
+            }
         ]
     }
 ])
