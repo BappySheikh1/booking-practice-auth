@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Cards = () => {
     return (
-        <div>
+        <div className='lg:px-12'>
             <div className="card card-side bg-base-100 shadow-xl mb-5">
                 <figure><img src="https://placeimg.com/200/280/arch" alt="Movie" /></figure>
                 <div className="card-body">

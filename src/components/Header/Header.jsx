@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context-API/UseContext';
-import './Header.css'
+import './Header.css';
+import { toast } from 'react-toastify';
 
 const Header = () => {
     const {user,logOut} =useContext(AuthContext)
@@ -9,7 +10,7 @@ const Header = () => {
    const handleLogOut=()=>{
     logOut()
     .then(()=>{
-
+      toast.success('LogOut Successfully',{autoClose: 500})
     })
     .catch(error => console.log(error))
    }
